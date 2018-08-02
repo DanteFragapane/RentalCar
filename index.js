@@ -19,7 +19,7 @@ pool.getConnection((err, success) => {
 })
 
 /* POPULATES THE VEHICLES TABLE
-request('https://my.api.mockaroo.com/vehicles.json?key=126468d0', {json : true} , (err, res, body) => {
+request('https://my.api.mockaroo.com/vehicles.json?key='+config.apiKey, {json : true} , (err, res, body) => {
   if (err) { return console.log(err); }
   console.log(body);
   for (var i = 0; i < 1000; i++) {
@@ -31,7 +31,7 @@ request('https://my.api.mockaroo.com/vehicles.json?key=126468d0', {json : true} 
 */
 
 /* POPULATES THE CUSTOMER TABLE
-request('https://my.api.mockaroo.com/customers.json?key=126468d0', {json : true} , (err, res, body) => {
+request('https://my.api.mockaroo.com/customers.json?key='+config.apiKey, {json : true} , (err, res, body) => {
   if (err) { return console.log(err); }
   console.log(body);
   for (var i = 0; i < 1000; i++) {
@@ -43,7 +43,7 @@ request('https://my.api.mockaroo.com/customers.json?key=126468d0', {json : true}
 */
 
 /* POPULATES THE RESERVATION TABLE
-request('https://my.api.mockaroo.com/reservations.json?key=126468d0', {json : true} , (err, res, body) => {
+request('https://my.api.mockaroo.com/reservations.json?key='+config.apiKey, {json : true} , (err, res, body) => {
   if (err) { return console.log(err); }
   console.log(body);
     pool.query('SELECT * FROM customers', (err, results, fields) => {
@@ -62,4 +62,3 @@ request('https://my.api.mockaroo.com/reservations.json?key=126468d0', {json : tr
     });
 });
 */
-
