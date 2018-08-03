@@ -1,5 +1,5 @@
 {
-    "name": "RentalCar",
+    "name": "rentalcar",
     "description": "A replication of a rental car company database.",
     "dependencies": {
         "mysql": "2.16.0",
