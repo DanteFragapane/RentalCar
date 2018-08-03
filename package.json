@@ -1,0 +1,12 @@
+{
+    "name": "RentalCar",
+    "description": "A replication of a rental car company database.",
+    "dependencies": {
+        "mysql": "2.16.0",
+        "request": "^2.87.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/LittleLing/RentalCar"
+    }
+}

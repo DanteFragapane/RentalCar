@@ -18,7 +18,7 @@ pool.getConnection((err, success) => {
     else console.log("Successfully connected!")
 })
 
-/* POPULATES THE VEHICLES TABLE
+//  POPULATES THE VEHICLES TABLE
 request('https://my.api.mockaroo.com/vehicles.json?key='+config.apiKey, {json : true} , (err, res, body) => {
   if (err) { return console.log(err); }
   console.log(body);
@@ -28,9 +28,9 @@ request('https://my.api.mockaroo.com/vehicles.json?key='+config.apiKey, {json : 
       });
   }
 });
-*/
 
-/* POPULATES THE CUSTOMER TABLE
+
+//  POPULATES THE CUSTOMER TABLE
 request('https://my.api.mockaroo.com/customers.json?key='+config.apiKey, {json : true} , (err, res, body) => {
   if (err) { return console.log(err); }
   console.log(body);
@@ -40,9 +40,9 @@ request('https://my.api.mockaroo.com/customers.json?key='+config.apiKey, {json :
       });
   }
 });
-*/
 
-/* POPULATES THE RESERVATION TABLE
+
+//  POPULATES THE RESERVATION TABLE
 request('https://my.api.mockaroo.com/reservations.json?key='+config.apiKey, {json : true} , (err, res, body) => {
   if (err) { return console.log(err); }
   console.log(body);
@@ -61,4 +61,5 @@ request('https://my.api.mockaroo.com/reservations.json?key='+config.apiKey, {jso
         }
     });
 });
-*/
+
+
