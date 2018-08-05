@@ -10,7 +10,7 @@ const pool = MySQL.createPool({
     password: config.pass,
     database: config.db,
 });
-
+let vehicleClasses = { "PCAR": 0, "FCAR": 0, "SCAR": 0, "ICAR": 0, "CCAR": 0, "ECAR": 0, "PFAR": 0, "FFAR": 0, "SFAR": 0, "IFAR": 0, "SSAR": 0 };
 
 
 let auditResults = function (results, year, month, day) {
@@ -34,9 +34,17 @@ let auditResults = function (results, year, month, day) {
             reservationsToday.push(element);
         }
     });
-    console.log(reservationsToday);
-    console.log("There are " + reservationsToday.length + " reservations for today!");
+    return reservationsToday;
 }
+
+let countClass = function (reservationsToday) {
+    reservationsToday.forEach(reservation => {
+        vehicleClasses[reservation.vehicle_class] += 1;
+    });
+    return vehicleClasses;
+}
+
+
 
 pool.getConnection((err, success) => {
     if (err) console.error(err)
@@ -101,11 +109,15 @@ pool.getConnection((err, success) => {
 pool.query(`SELECT * FROM reservations`, (err, results, fields) => {
     if (err) { console.error(err); }
     else {
+        let reservationsToday;
         if (process.argv[2] == undefined || process.argv[3] == undefined || process.argv[4] == undefined) {
             let date = new Date();
-            auditResults(results, date.getFullYear(), date.getMonth(), date.getDate());
+            reservationsToday = auditResults(results, date.getFullYear(), date.getMonth(), date.getDate());
         } else {
-            auditResults(results, process.argv[2], process.argv[3] - 1, process.argv[4]);
+            reservationsToday = auditResults(results, process.argv[2], process.argv[3] - 1, process.argv[4]);
         }
+        console.log(reservationsToday);
+        console.log(reservationsToday.length);
+        console.log(countClass(reservationsToday));
     }
 });
