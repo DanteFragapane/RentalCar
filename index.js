@@ -43,7 +43,7 @@ let countClass = function (reservationsToday) {
     reservationsToday.forEach(reservation => {
         vehicleClasses[reservation.vehicle_class] += 1;
     });
-    return vehicleClasses; 
+    return vehicleClasses;
 }
 
 // Performs the audits
@@ -66,10 +66,32 @@ let performAudits = function () {
 }
 
 
+let sim = function () {
+    let today = new Date('2018-9-01');
+    pool.query(`SELECT * FROM vehicles`, (err, results) => {
+        for (let i = 0; i < results.length; i++) {
+            let newMileage = results[i].mileage + Math.floor(Math.random() * 300) + 20;
+            // console.log(results);
+            if (results[i].mileage < 5000 && newMileage > 5000) {
+                pool.query(`UPDATE vehicles SET mileage = ${newMileage}, holdCode = 'PM' WHERE id = ${results[i].id}`, (err) => { if (err) console.error(err); });
+            } else {
+                pool.query(`UPDATE vehicles SET mileage = ${newMileage} WHERE id = ${results[i].id}`, (err) => { if (err) console.error(err); });
+            }
+        }
+    })
+}
+
+
+
+
 //  Test to ensure we get a connection to the mySQL server
-pool.getConnection((err, success) => {
+pool.getConnection((err) => {
     if (err) console.error(err)
-    else console.log("Successfully connected!")
+    else console.log("Successfully connected!");
 })
 
-performAudits();
+
+// performAudits();
+for (let i = 0; i < 100; i++) {
+    sim();
+}

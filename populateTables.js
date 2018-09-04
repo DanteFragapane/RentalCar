@@ -10,7 +10,7 @@ module.exports = {
                 console.log("\nVehicles")
                 console.log(body);
                 for (var i = 0; i < 1000; i++) {
-                    pool.query(`insert into vehicles (id, vin, make, model, year, color) values (?,?,?,?,?,?)`, [body[i].id, body[i].vin, body[i].make, body[i].model, body[i].year, body[i].color], (err) => {
+                    pool.query(`insert into vehicles (id, vin, make, model, year, color, mileage) values (?,?,?,?,?,?,?)`, [body[i].id, body[i].vin, body[i].make, body[i].model, body[i].year, body[i].color, body[i].mileage], (err) => {
                         if (err) { console.error(err); }
                     });
                 }
