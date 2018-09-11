@@ -1,0 +1,7 @@
+{"@message":"Hello World!","@fields":{"level":"info"}}
+undefined
+{"level":"info","message":"Hello World!"}
+{"keyValue":"keyPair","level":"info","message":"Hello World!"}
+{"keyValue":10,"level":"info","message":"Hello World!"}
+{"message":"RUN TO THE ESCAPE PODS!","level":"error"}
+{"level":"error","message":"RUN TO THE ESCAPE PODS!"}

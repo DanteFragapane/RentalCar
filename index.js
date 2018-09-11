@@ -11,6 +11,25 @@ const pool = MySQL.createPool({
     database: config.db,
 });
 
+const winston = require('winston') // Logger
+/* Levels are: 
+error
+warn
+info
+verbose
+debug
+silly (log EVERYTHING!)
+*/
+const logger = winston.createLogger({
+    level: 'debug',
+    format: winston.format.json(),
+    transports: [
+        new winston.transports.File({ filename: 'combined.log' }),
+        new winston.transports.Console()
+    ],
+});
+
+
 
 //  Audits the array of `results`, either for the current day, or the day provided as an argument
 let auditResults = function (results, year, month, day) {
