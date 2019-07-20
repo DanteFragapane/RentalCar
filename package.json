@@ -1,14 +1,14 @@
 {
-    "name": "rentalcar",
-    "description": "A replication of a rental car company database.",
-    "dependencies": {
-        "mysql": "2.16.0",
-        "npm": "^6.4.1",
-        "request": "^2.87.0",
-        "winston": "^3.1.0"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/LittleLing/RentalCar"
-    }
+  "name": "rentalcar",
+  "description": "A replication of a rental car company database.",
+  "dependencies": {
+    "mysql": "2.16.0",
+    "npm": "^6.10.1",
+    "request": "^2.87.0",
+    "winston": "^3.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LittleLing/RentalCar"
+  }
 }
